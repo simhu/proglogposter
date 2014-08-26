@@ -5,13 +5,13 @@
 \usecolortheme{seahorse}
 \usepackage[english]{babel}
 \usepackage[T1]{fontenc}
-% \usepackage{palatino}
+\usepackage{palatino}
 \usepackage{DejaVuSans}
-\usepackage{bbding}
-\usepackage[sans]{dsfont}
+% \usepackage{bbding}
+% \usepackage[sans]{dsfont}
 \usepackage[orientation=portrait,size=a1,scale=2]{beamerposter}
  \usepackage[absolute,overlay]{textpos}
-\usepackage{bold-extra}
+%\usepackage{bold-extra}
 % \usepackage{verbatim}
 \usepackage{tikz}
 % \usetikzlibrary{matrix}
@@ -29,12 +29,13 @@
 % {
 % \begin{beamerboxesrounded}[upper=upcol,lower=lowcol,shadow=true]}
 % {\end{beamerboxesrounded}}
-
+\setbeamertemplate{itemize items}{\checkmark}
 
 \newcommand{\cancel}[1]{%
     \tikz[baseline=(tocancel.base)]{
         \node[inner sep=0pt,outer sep=0pt] (tocancel) {#1};
-        \draw[line width=10pt][red] (tocancel.south west) -- (tocancel.north east);
+        \draw[line width=10pt][red] (tocancel.south west) --
+        (tocancel.north east);
     }%
 }%
 
@@ -47,7 +48,7 @@
 % footer}{bg=blockFooterBackground,fg=blockFooterForeground}
 \setbeamercolor{block title}{bg=blue!15}
 %\setbeamerfont{block title}{size=\Large,series=\bf\sf}
-
+\setbeamerfont{frame title}{size=\Huge,series=\bf\sf}
 \setbeamertemplate{frametitle}[default][center]
 
 
@@ -57,9 +58,9 @@
 \date{}
 
 \begin{document}
-\begin{frame}{\rule{0}{2em}\Huge Programming Logic\vfill}
-%\maketitle
-\vfill
+\begin{frame}{\Huge Programming Logic\vfill}
+% \maketitle
+  \vfill
   \begin{minipage}[c]{1.0\linewidth}
     \begin{columns}
       \begin{column}{0.45\textwidth}%
@@ -79,7 +80,7 @@
             \end{column}
             \begin{column}{0.45\textwidth}
               \includegraphics[scale=.5]{russell.jpg}
-%              {\tiny B.~Russell}
+              % {\tiny B.~Russell}
             \end{column}
           \end{columns}
           % A barber who shaves  the people who don't shave
@@ -87,15 +88,17 @@
         \end{block}
       \end{column}
 
-      \begin{column}{.48\textwidth}
+      \begin{column}{.48\textwidth}%
         \begin{block}{Constructive Mathematics}
-          \vskip.75em
+          \vskip.77em
           \begin{center}
             \fbox{\huge \cancel{${A \lor \neg A}$}}
           \end{center}
           A mathematical object only exists by an explicit
           construction.
-          \vskip4em
+          % {\small A mathematical object only exists by an explicit
+          % construction.}
+          \vskip4.1em
         \end{block}
         \vfill
       \end{column}
@@ -104,13 +107,15 @@
   % \begin{block}{}
   % \end{block}
   % \vfill
-   \vskip1em
+  \vskip1em
   \begin{block}{Dependent Type Theory}
+    \vskip.35em
     \begin{itemize}
     \item Programming language and foundation of mathematics in one!
     \item Proving = programming
     \item Correctness by construction!
     \end{itemize}
+    \vskip.35em
     \begin{columns}
       \begin{column}{.45\textwidth-1ex}%
         \begin{block}{Agda \hfill {\small (made in Chalmers)}}
@@ -125,23 +130,29 @@
             \includegraphics[scale=1.2]{emacs.png}
           \end{minipage}
         \end{block}
-
       \end{column}
       \begin{column}{.45\textwidth-1ex}%
         \begin{block}{Formalization}
           % Interactive theorem proving (with Coq \& Agda) o
           {\small Computer assisted verification of proofs and
             programs}
-          \includegraphics[scale=2, angle=90]{fcolor.png}\\
-          {\small How many colors are needed to color any map?}
+          \vskip0.45em
+          \begin{columns}
+            \begin{column}{.5\textwidth}
+              {\small How many colors are needed to color any map?}
+            \end{column}
+            \begin{column}{.5\textwidth}
+              \includegraphics[scale=1.4]{fcolor.png}\\
+            \end{column}
+          \end{columns}
         \end{block}
-
       \end{column}
     \end{columns}
+    \vskip1em
     \begin{block}{Homotopy Type Theory}
       \begin{columns}
         \begin{column}{.25\textwidth-1ex}
-          \includegraphics[scale=2]{donut.png}
+          \includegraphics[trim=0 0.5em 0 .5em, scale=2]{donut.png}
         \end{column}
         \begin{column}{.65\textwidth-1ex}
           New foundation of mathematics: a connection between Computer
@@ -149,9 +160,8 @@
         \end{column}
       \end{columns}
     \end{block}
-
   \end{block}
-\vfill
+  \vfill
 \end{frame}
 
 
